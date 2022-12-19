@@ -6,8 +6,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.servise.RoleServise;
-import ru.kata.spring.boot_security.demo.servise.UserServise;
+import ru.kata.spring.boot_security.demo.service.RoleService;
+import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.util.List;
 
@@ -16,10 +16,10 @@ import java.util.List;
 @RequestMapping("admin")
 public class AdminController {
 
-    private final UserServise userServise;
-    private final RoleServise roleServise;
+    private final UserService userServise;
+    private final RoleService roleServise;
 
-    public AdminController(UserServise userServise, RoleServise roleServise) {
+    public AdminController(UserService userServise, RoleService roleServise) {
         this.userServise = userServise;
         this.roleServise = roleServise;
     }
