@@ -1,6 +1,5 @@
 package ru.kata.spring.boot_security.demo.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +19,6 @@ import java.util.Optional;
 
 
 @Service
-@Transactional
 public class UserServiceImp implements UserService, UserDetailsService {
 
 
@@ -41,6 +39,7 @@ public class UserServiceImp implements UserService, UserDetailsService {
     }
 
     @Override
+    @Transactional
     public void addUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -58,6 +57,7 @@ public class UserServiceImp implements UserService, UserDetailsService {
     }
 
     @Override
+    @Transactional
     public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
